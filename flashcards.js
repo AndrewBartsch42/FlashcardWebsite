@@ -18,16 +18,16 @@ Create DOM references for all the DOM elements that have ids
 use getElementById() which is the safest default (slightly faster)
 instead of using querySelector() for advanced selection like CSS selector support
 */
-const commandEl = document.getElementById("command"); // add, list, quiz, clear
-const commandErrorEl = document.getElementById("commandError");
+const command = document.getElementById("command"); // add, list, quiz, clear
+const commandError = document.getElementById("commandError");
 
-const questionEl = document.getElementById("question");
-const questionErrorEl = document.getElementById("questionError");
+const question = document.getElementById("question");
+const questionError = document.getElementById("questionError");
 
-const answerEl = document.getElementById("answer");
-const answerErrorEl = document.getElementById("answerError");
+const answer = document.getElementById("answer");
+const answerError = document.getElementById("answerError");
 
-const outputEl = document.getElementById("output"); // display output to the user
+const output = document.getElementById("output"); // display output to the user
 
 const form = document.getElementById("flashcardForm");
 
@@ -35,14 +35,14 @@ form.addEventListener("submit", function (event) {
     event.preventDefault(); // prevent default form button behavior
 
     // clear all errors from the previous submit
-    commandErrorEl.textContent = "";
-    questionErrorEl.textContent = "";
-    answerErrorEl.textContent = "";
-    outputEl.textContent = "";
+    commandError.textContent = "";
+    questionError.textContent = "";
+    answerError.textContent = "";
+    output.textContent = "";
 
     /* TODO: Finish me
-     - use a switch to run the appropriate function based on the commandEl.value
-     - use a default block to display an "Unknown command" error using the commandErrorEL
+     - use a switch to run the appropriate function based on the command.value
+     - use a default block to display an "Unknown command" error using the commandError
      - NOTE: for "add" pass the question and answer trim value to the addCard function
      */
 });
