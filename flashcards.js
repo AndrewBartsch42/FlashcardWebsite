@@ -45,20 +45,21 @@ form.addEventListener("submit", function (event) {
      - use a default block to display an "Unknown command" error using the commandError
      - NOTE: for "add" pass the question and answer trim value to the addCard function
      */
-    switch(command){
-        case "add":
-            addCard(userQuestion, userAnswer);
+    let inputCommand = command.value
+    switch(inputCommand){
+        case("add"):
+            addCard(question.value.trim(), answer.value.trim());
             break;
-        case "list":
+        case ("list"):
             listCards();
             break;
-        case "quiz":
+        case ("quiz"):
             quiz();
             break;
-        case "clear":
+        case ("clear"):
             clearCards();
             break;
-        case "load_default":
+        case ("load_default"):
             loadDefault();
             break;
         default:
@@ -103,7 +104,11 @@ function addCard(input_question, input_answer) {
  * NOTE: the first card should display #1 instead #0
  */
 function listCards() {
-    // TODO: Finish me
+    questionList = "All Cards:\n"
+    for (i in questions){
+        questionList + questions.at(i) + "\n"
+    }
+    output.textContent = questionList
 }
 
 /**
