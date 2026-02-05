@@ -45,6 +45,26 @@ form.addEventListener("submit", function (event) {
      - use a default block to display an "Unknown command" error using the commandError
      - NOTE: for "add" pass the question and answer trim value to the addCard function
      */
+    switch(command){
+        case "add":
+            addCard(userQuestion, userAnswer);
+            break;
+        case "list":
+            listCards();
+            break;
+        case "quiz":
+            quiz();
+            break;
+        case "clear":
+            clearCards();
+            break;
+        case "load_default":
+            loadDefault();
+            break;
+        default:
+            commandError.textContent = "Invalid Command";
+    }
+        
 });
 
 /**
@@ -58,9 +78,21 @@ form.addEventListener("submit", function (event) {
  * @param question the input question trimmed value
  * @param answer the input answer trimmed value
  */
-function addCard(question, answer) {
+function addCard(input_question, input_answer) {
     let dataValidationError = false;
-    // TODO: Finish me
+    if (input_question == ""){
+        questionError.textContent = "Required Field"
+        dataValidationError = true;
+    }
+    if (input_answer == ""){
+        answerError.textContent = "Required Field"
+        dataValidationError = true;
+    }
+
+    if (dataValidationError == false){
+        questions.push(input_question);
+        answers.push(input_answer);
+    }
 }
 
 /**
