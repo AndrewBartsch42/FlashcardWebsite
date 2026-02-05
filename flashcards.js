@@ -104,11 +104,14 @@ function addCard(input_question, input_answer) {
  * NOTE: the first card should display #1 instead #0
  */
 function listCards() {
-    questionList = "All Cards:\n"
-    for (i in questions){
-        questionList + questions.at(i) + "\n"
+    if (questions.length == 0){
+        output.textContent = "No questions in list"
+    } else{
+        let questionList = ""
+        for(var i = 0; i < questions.length; i++)
+            questionList += questions.at(i) + "\n";
+        output.textContent = "All cards: \n" + questionList
     }
-    output.textContent = questionList
 }
 
 /**
