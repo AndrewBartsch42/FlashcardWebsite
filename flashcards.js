@@ -91,7 +91,7 @@ function addCard(input_question, input_answer) {
     }
 
     if (dataValidationError == false){
-        questions.push(input_question);
+        questions.push(isQuestion(input_question));
         answers.push(input_answer);
     }
 }
@@ -166,4 +166,21 @@ function clearCards() {
  */
 function capitalizeFirstChar(str) {
     // TODO: Finish me
+    if (!str){
+        return str
+    }
+    else{
+    //https://stackoverflow.com/questions/1026069/how-do-i-make-the-first-letter-of-a-string-uppercase-in-javascript
+        return String(str).charAt(0).toUpperCase() + String(str).slice(1);
+    }
+}
+
+
+function isQuestion(str) {
+    if(String(str).charAt(str.length - 1) == "?"){
+        return capitalizeFirstChar(str);
+    }
+    else{
+        return capitalizeFirstChar(str) + "?";
+    }
 }
