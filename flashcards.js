@@ -152,7 +152,10 @@ function showNextCard() {
  * display "All cards cleared." to the output area
  */
 function clearCards() {
-    // TODO: Finish me
+    for(var i = 0; i < questions.length; i++){
+        questions.pop();
+    }
+    output.textContent = "All cards cleared";
 }
 
 /**
