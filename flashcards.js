@@ -92,7 +92,7 @@ function addCard(input_question, input_answer) {
 
     if (dataValidationError == false){
         questions.push(isQuestion(input_question));
-        answers.push(input_answer);
+        answers.push(capitalizeFirstChar(input_answer));
     }
 }
 
@@ -122,6 +122,10 @@ function listCards() {
  */
 function loadDefault() {
     // TODO: Finish me
+    addCard("Can the duck swim?", "yes");
+    addCard("Are geese evil?", "yes");
+    addCard("How much wood would a woodchuck chuck if a wood chuck could chuck wood?", "As much as the woodchuck wanted to");
+    addCard("What?", "Pears");
 }
 
 /**
