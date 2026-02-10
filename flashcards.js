@@ -12,6 +12,7 @@ Two global script variables used during quiz mode:
  */
 let currentIndex = 0;
 let displayAnswer = false;
+let currentCardNumber = 1;
 
 /*
 Create DOM references for all the DOM elements that have ids
@@ -54,7 +55,7 @@ form.addEventListener("submit", function (event) {
             listCards();
             break;
         case ("quiz"):
-            quiz();
+            showNextCard();
             break;
         case ("clear"):
             clearCards();
@@ -126,6 +127,7 @@ function loadDefault() {
     addCard("Are geese evil?", "yes");
     addCard("How much wood would a woodchuck chuck if a wood chuck could chuck wood?", "As much as the woodchuck wanted to");
     addCard("What?", "Pears");
+    output.textContent = "Default questions loaded";
 }
 
 /**
@@ -145,7 +147,28 @@ function loadDefault() {
  *    set displayAnswer to true
   */
 function showNextCard() {
-    // TODO: Finish me
+    question.textContent = "";
+    answer.textContent = "";
+    // https://stackoverflow.com/questions/24403732/how-to-check-if-array-is-empty-or-does-not-exist
+    if (!questions.length){
+        output.textContent = "No questions to quiz with.";
+        return;
+    }
+    if (currentCardNumber > questions.length){
+        currentCardNumber = 1;
+    }
+    if (displayAnswer == true){
+        output.textContent = "Card Number: " + currentCardNumber + "\n" + "Question: " + questions.at(currentCardNumber - 1) + "\n" + "Answer: " + answers.at(currentCardNumber - 1) + "\n";
+        displayAnswer = false;
+        currentCardNumber += 1;
+        return;
+    }
+    else if (displayAnswer == false){
+        output.textContent = "Card Number: " + currentCardNumber + "\n" + "Question: " + questions.at(currentCardNumber - 1) + "\n" + "Answer: Press run to see answer" + "\n";
+        displayAnswer = true;
+        return; 
+    }
+    
 }
 
 /**
