@@ -110,7 +110,7 @@ function listCards() {
     } else{
         let questionList = ""
         for(var i = 0; i < questions.length; i++)
-            questionList += questions.at(i) + "\n";
+            questionList += i+1 + ". " + questions.at(i) + "\n";
         output.textContent = "All cards: \n" + questionList
     }
 }
@@ -122,7 +122,6 @@ function listCards() {
  * and display how many questions were loaded in the output area
  */
 function loadDefault() {
-    // TODO: Finish me
     addCard("Can the duck swim?", "yes");
     addCard("Are geese evil?", "yes");
     addCard("How much wood would a woodchuck chuck if a wood chuck could chuck wood?", "As much as the woodchuck wanted to");
@@ -192,7 +191,6 @@ function clearCards() {
  * @returns {*|string} where the first letter is uppercased
  */
 function capitalizeFirstChar(str) {
-    // TODO: Finish me
     if (!str){
         return str
     }
@@ -202,7 +200,7 @@ function capitalizeFirstChar(str) {
     }
 }
 
-
+// checks if the question inputed has a question mark at the end of it
 function isQuestion(str) {
     if(String(str).charAt(str.length - 1) == "?"){
         return capitalizeFirstChar(str);
